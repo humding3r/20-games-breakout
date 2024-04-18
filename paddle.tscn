@@ -1,12 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://br778passatby"]
 
 [ext_resource type="Script" path="res://paddle.gd" id="1_a4o38"]
-[ext_resource type="PackedScene" uid="uid://hy6qrg5jxu4l" path="res://ball.tscn" id="2_eknhb"]
+[ext_resource type="PackedScene" uid="uid://hy6qrg5jxu4l" path="res://ball.tscn" id="2_yqhys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvmde"]
 size = Vector2(80, 8)
 
-[node name="Paddle" type="CharacterBody2D"]
+[node name="Paddle" type="AnimatableBody2D"]
+collision_layer = 2
+sync_to_physics = false
 script = ExtResource("1_a4o38")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -16,7 +18,7 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kvmde")
 
-[node name="BallSpawnPoint" type="Marker2D" parent="."]
+[node name="Ball" parent="." instance=ExtResource("2_yqhys")]
 position = Vector2(0, -4)
-
-[node name="Ball" parent="BallSpawnPoint" instance=ExtResource("2_eknhb")]
+lock_rotation = true
+linear_damp_mode = 1
