@@ -19,3 +19,7 @@ func _physics_process(delta: float) -> void:
 	var collision_info: KinematicCollision2D = move_and_collide(Vector2.ZERO)
 	if collision_info:
 		linear_velocity = linear_velocity.bounce(collision_info.get_normal())
+
+func _on_body_entered(body: Node) -> void:
+	if body.has_method("destroy"):
+		body.destroy()

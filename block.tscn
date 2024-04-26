@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfvn3sc4ab1gk"]
+
+[ext_resource type="Script" path="res://block.gd" id="1_grnno"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv7x2"]
+
+[node name="Block" type="StaticBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_grnno")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(1.23922, 1.23922)
+polygon = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nv7x2")

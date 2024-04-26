@@ -11,9 +11,13 @@ collision_mask = 3
 gravity_scale = 0.0
 sleeping = true
 freeze = true
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_oo52b")
 hitbox = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_1bcjc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
